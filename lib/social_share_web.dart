@@ -1,4 +1,4 @@
-library socal_share_web;
+library social_share_web;
 
 //*exports
 export 'src/social_share_web.dart';
