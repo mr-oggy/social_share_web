@@ -15,7 +15,7 @@ enum SocialMediaType {
 
 class SocialShareWeb extends StatefulWidget {
   final String url;
-  final SocialMediaType socalMediaType;
+  final SocialMediaType socialMediaType;
   final String buttonTitles;
   final Widget icon;
   final Color? buttonColor;
@@ -25,7 +25,7 @@ class SocialShareWeb extends StatefulWidget {
   final EdgeInsetsGeometry? padding;
   SocialShareWeb(
     this.url,
-    this.socalMediaType,
+    this.socialMediaType,
     this.buttonTitles,
     this.icon, {
     this.buttonColor,
@@ -41,32 +41,32 @@ class SocialShareWeb extends StatefulWidget {
 
 class _SocialShareWebState extends State<SocialShareWeb> {
   final ShareFunction fun = ShareFunction();
-  String finalSocalMedaUrl = '';
+  String finalSocialMedaUrl = '';
   @override
   void initState() {
-    switch (widget.socalMediaType) {
+    switch (widget.socialMediaType) {
       case SocialMediaType.Facebook:
         {
-          finalSocalMedaUrl = fun.getFacebookUrl(widget.url);
+          finalSocialMedaUrl = fun.getFacebookUrl(widget.url);
           log('Facebook');
         }
         break;
 
       case SocialMediaType.Twitter:
         {
-          finalSocalMedaUrl = fun.getTwitterUrl(widget.url);
+          finalSocialMedaUrl = fun.getTwitterUrl(widget.url);
           log('Twitter');
         }
         break;
       case SocialMediaType.WhatsApp:
         {
-          finalSocalMedaUrl = fun.getWhatsAppUrl(widget.url);
+          finalSocialMedaUrl = fun.getWhatsAppUrl(widget.url);
           log('WhatsApp');
         }
         break;
       case SocialMediaType.Copy:
         {
-          finalSocalMedaUrl = widget.url;
+          finalSocialMedaUrl = widget.url;
           log('Copy to clipbord');
         }
         break;
@@ -80,7 +80,7 @@ class _SocialShareWebState extends State<SocialShareWeb> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        fun.getSocalButtone(
+        fun.getSocialButtone(
           widget.buttonTitles,
           widget.buttonColor ?? Colors.white,
           widget.shape ?? StadiumBorder(),
@@ -90,15 +90,15 @@ class _SocialShareWebState extends State<SocialShareWeb> {
               const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
           widget.icon,
           () async {
-            widget.socalMediaType == SocialMediaType.Copy
-                ? Clipboard.setData(ClipboardData(text: finalSocalMedaUrl))
+            widget.socialMediaType == SocialMediaType.Copy
+                ? Clipboard.setData(ClipboardData(text: finalSocialMedaUrl))
                     .then(
                     (_) {
                       ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text("copied to clipboard")));
                     },
                   )
-                : fun.launchURL(finalSocalMedaUrl);
+                : fun.launchURL(finalSocialMedaUrl);
           },
         ),
       ],
@@ -138,7 +138,7 @@ class ShareFunction implements Share {
   }
 
   @override
-  Widget getSocalButtone(
+  Widget getSocialButtone(
     String title,
     Color buttonColor,
     OutlinedBorder shape,
@@ -174,7 +174,7 @@ abstract class Share {
   String getWhatsAppUrl(String url);
   String getTwitterUrl(String url);
   void launchURL(String url);
-  Widget getSocalButtone(
+  Widget getSocialButtone(
       String title,
       Color buttonColor,
       OutlinedBorder shape,

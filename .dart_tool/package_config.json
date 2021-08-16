@@ -182,7 +182,7 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "socal_share_web",
+      "name": "social_share_web",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.12"

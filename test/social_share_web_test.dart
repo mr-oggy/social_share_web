@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:socal_share_web/social_share_web.dart';
+import 'package:social_share_web/social_share_web.dart';
 
 void main() {
   ShareFunction fun = ShareFunction();
