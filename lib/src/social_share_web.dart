@@ -1,4 +1,4 @@
-library socal_share_web;
+library social_share_web;
 
 import 'dart:developer';
 
